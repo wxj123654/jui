@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+@keyframes message-item-in {
+  0% {
+    margin-top: 0px;
+  }
+  100%{
+    margin-top: 30px;
+  }
+}
+@keyframes message-item-out {
+  0% {
+    margin-top: 30px;
+    opacity: 1;
+  }
+  100%{
+    margin-top: 0px;
+    opacity: 0;
+  }
+}
+.message-box {
+  min-width: 200px;
+  margin-top: 30px;
+  display: inline-block;
+  padding: 10px 16px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+  pointer-events: all;
+  /* transform: translateY(-50px); */
+}
+.message-box.in {
+  animation:  0.5s message-item-in forwards;
+}
+.message-box.out {
+  animation:  0.3s message-item-out forwards;
+}

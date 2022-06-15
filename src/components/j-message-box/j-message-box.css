@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+#j-message-box {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  width: 100%;
+  position:fixed;
+  top:0;
+  pointer-events:none;
+  z-index: 1010;
+}
