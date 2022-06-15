@@ -5,12 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { messageType } from "./components/j-message/j-message";
 export namespace Components {
     interface JMessageBox {
     }
     interface JMessageItem {
         "close": () => Promise<void>;
-        "title": string;
+        "setTitle": (title: string) => Promise<void>;
+        "setType": (type: messageType) => Promise<void>;
     }
     interface MyComponent {
         /**
@@ -57,7 +59,6 @@ declare namespace LocalJSX {
     interface JMessageBox {
     }
     interface JMessageItem {
-        "title"?: string;
     }
     interface MyComponent {
         /**

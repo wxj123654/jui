@@ -1,3 +1,5 @@
+
+export type messageType = 'success' | 'info' | 'error'
 class JMessageClass {
   jMessageBox: HTMLElement;
   time: number;
@@ -5,6 +7,7 @@ class JMessageClass {
     this.init()
     this.time = 5000
   }
+
   init() {
     if(!document.querySelector("#j-message-box-el")) {
       const JMessageBoxEle = document.createElement("j-message-box")
@@ -12,10 +15,17 @@ class JMessageClass {
       this.jMessageBox = JMessageBoxEle
     }
   }
-  success(title: string) {
+  success(config: {content: string,duration?: number}) {
+    this.base(config,'success')
+  }
+  info(config: {content: string,duration?: number}) {
+    this.base(config,'info')
+  }
+  private base(config: {content: string,duration?: number},type:messageType) {
     const container = this.jMessageBox.shadowRoot.querySelector("#j-message-box")
     const jMessageItem = document.createElement("j-message-item");
-    jMessageItem.setAttribute("title", title);
+    jMessageItem.setTitle(config.content);
+    jMessageItem.setType(type)
     container.appendChild(jMessageItem);
     this.autoRemove(container,jMessageItem);
   }
@@ -31,6 +41,7 @@ class JMessageClass {
       parentNode.removeChild(item);
     }, 300);
   }
+  
 } 
 const JMessage =  new JMessageClass()
 export default JMessage

@@ -29,7 +29,7 @@ export class MyComponent {
 
   @Method()
   async message() {
-    JMessage.success("123")
+    JMessage.success({content: "123"})
   }
 
   render() {
